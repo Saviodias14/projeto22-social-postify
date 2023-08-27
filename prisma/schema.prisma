@@ -21,8 +21,8 @@ model Media {
 
 model Post {
   id    Int     @id @default(autoincrement())
-  title String  @unique
-  text  String  @unique
+  title String
+  text  String
   image String?
 
   Publications Publication[]

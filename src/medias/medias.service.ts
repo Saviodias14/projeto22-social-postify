@@ -39,4 +39,16 @@ export class MediasService {
         }
         return await this.mediaRepository.updateMedia(id, body)
     }
+
+    async deleteMedia(id: number){
+        const media = await this.mediaRepository.getMediaById(id)
+        if (!media) {
+            throw new HttpException('Not Found Error', HttpStatus.NOT_FOUND)
+        }
+        const existPublication = await this.mediaRepository.findPublication(id)
+        if(existPublication){
+            throw new HttpException('Forbidden', HttpStatus.FORBIDDEN)
+        }
+        return await this.mediaRepository.deleteMedia(id)
+    }
 }

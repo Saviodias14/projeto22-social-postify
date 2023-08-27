@@ -9,7 +9,7 @@ export class MediasRepository {
     verifyExistsMedias(body: mediasDTO) {
         return this.prisma.media.findMany({
             where: { title: body.title, username: body.username },
-            select: {id: true}
+            select: { id: true }
         })
     }
 
@@ -34,5 +34,12 @@ export class MediasRepository {
             where: { id },
             data: { username: body.username, title: body.title }
         })
+    }
+
+    findPublication(mediaId: number) {
+        return this.prisma.publication.findFirst({ where: { mediaId } })
+    }
+    deleteMedia(id: number) {
+        return this.prisma.media.delete({ where: { id } })
     }
 }

@@ -8,7 +8,6 @@ export class postDTO {
     @IsString()
     @IsNotEmpty()
     text: string
-
-    @IsString()
+    
     image?: string
 }
