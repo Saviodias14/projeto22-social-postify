@@ -10,8 +10,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-//model User {
- // id    Int     @id @default(autoincrement())
-  //email String  @unique
-  //name  String?
-//}
+model Media {
+  id          Int           @id @default(autoincrement())
+  title       String
+  username    String
+  Publication Publication[]
+
+  @@map("medias")
+}
+
+model Post {
+  id    Int     @id @default(autoincrement())
+  title String  @unique
+  text  String  @unique
+  image String?
+
+  Publications Publication[]
+
+  @@map("posts")
+}
+
+model Publication {
+  id      Int      @id @default(autoincrement())
+  mediaId Int
+  postId  Int
+  date    DateTime @default(now())
+
+  Media Media @relation(fields: [mediaId], references: [id])
+  Post  Post  @relation(fields: [postId], references: [id])
+
+  @@map("publications")
+}
