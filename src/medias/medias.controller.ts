@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
 import { MediasService } from './medias.service';
-import { mediasDTO } from 'src/dto/mediaDto';
+import { mediasDTO } from '../dto/mediaDto';
 
 @Controller('medias')
 export class MediasController {

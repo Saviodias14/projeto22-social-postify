@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put, Query } from '@nestjs/common';
 import { PublicationService } from './publication.service';
-import { PublicationDTO } from 'src/dto/publicationDto';
+import { PublicationDTO } from '../dto/publicationDto';
 
 @Controller('publications')
 export class PublicationController {

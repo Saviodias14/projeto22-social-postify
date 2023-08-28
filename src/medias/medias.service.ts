@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { Media, Prisma } from '@prisma/client';
 import { MediasRepository } from './medias.repository';
-import { mediasDTO } from 'src/dto/mediaDto';
+import { mediasDTO } from '../dto/mediaDto';
 
 @Injectable()
 export class MediasService {
